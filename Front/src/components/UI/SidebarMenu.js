@@ -6,7 +6,9 @@ const SidebarMenu = () => {
   return (
     <>
       <div className="sidenav">
-        <Header as="h1">Stars Library</Header>
+        <Header as="h1" textAlign="center">
+          Stars Library
+        </Header>
         <Menu.Item as={Link} to="/userarea">
           <Icon name="user" />
           User area
