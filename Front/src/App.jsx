@@ -2,6 +2,13 @@ import "./App.css";
 import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SidebarMenu from "./components/UI/SidebarMenu";
+import Home from "./components/Home";
+import UserArea from "./components/User/UserArea";
+import Borrow from "./components/Book/Borrow";
+import Return from "./components/Book/Return";
+import PastBooks from "./components/Book/PastBooks";
+import Management from "./components/Management";
+import NotFound from "./components/NotFound";
 import { command, sendHello } from "./socket/socketEmit";
 
 const App = () => {

@@ -54,7 +54,8 @@ body {
   color: var(--light-color);
 }
 
-.sidenav a {
+.sidenav a,
+.Nav_link:link {
   padding: 30px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
