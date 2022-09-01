@@ -1,16 +1,25 @@
 import "./App.css";
 import React, { useState } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import SidebarMenu from "./components/UI/SidebarMenu";
 import { command, sendHello } from "./socket/socketEmit";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
   return (
-    <React.Fragment>
+    <Router>
       <SidebarMenu />
-      <div className="content"></div>
-      {/* <div className="pusher right">
-        <h1>{counter}</h1>
+      <div className="content">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/userarea" element={<UserArea />} />
+          <Route path="/borrow" element={<Borrow />} />
+          <Route path="/return" element={<Return />} />
+          <Route path="/pastbooks" element={<PastBooks />} />
+          <Route path="/management" element={<Management />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+        {/* <h1>{counter}</h1>
         <button
           onClick={(e) => {
             setCounter((curr) => curr + 1);
@@ -32,9 +41,9 @@ const App = () => {
         >
           {" "}
           Hello{" "}
-        </button>
-      </div> */}
-    </React.Fragment>
+        </button> */}
+      </div>
+    </Router>
   );
 };
 

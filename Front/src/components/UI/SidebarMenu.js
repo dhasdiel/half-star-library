@@ -1,10 +1,11 @@
 import React from "react";
-import { Icon, Menu } from "semantic-ui-react";
+import { Icon, Menu, Header } from "semantic-ui-react";
 
 const SidebarMenu = () => {
   return (
     <>
       <div className="sidenav">
+        <Header as="h1">Stars Library</Header>
         <Menu.Item as="a">
           <Icon name="user" />
           User area
