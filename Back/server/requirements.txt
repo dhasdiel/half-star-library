@@ -1,0 +1,10 @@
+docker==4.1.0
+docker-compose==1.25.0
+Flask==2.0.3
+flask-sock==0.5.0
+Flask-SocketIO==4.3.1
+python-engineio==3.13.2
+python-socketio==4.6.0
+Werkzeug==2.0.1
+six==1.14.0
+eventlet==0.33.1
