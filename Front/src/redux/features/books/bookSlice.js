@@ -1,8 +1,22 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const DUMB_BOOKS = [{ id: 0, name: "", genre: "", isBorrow: true }];
-
 const initialState = {
-  books: DUMB_BOOKS,
-  numOfBooks: DUMB_BOOKS.length,
+  books: null,
+  numOfBooks: 0,
 };
+
+const bookSlice = createSlice({
+  name: "book",
+  initialState,
+  reducers: {
+    setBooks: (state, action) => {
+      state.books = action.payload;
+    },
+    setNumOfBooks: (state, action) => {
+      state.numOfBooks = action.payload.length;
+    },
+  },
+});
+
+export const { setBooks, setNumOfBooks } = bookSlice.actions;
+export default bookSlice.reducer;

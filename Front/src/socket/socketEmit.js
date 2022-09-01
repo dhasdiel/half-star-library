@@ -2,6 +2,7 @@ import socket from "./socketConnection";
 
 const command = (data) => {
   socket.emit("command", data);
+  console.log(data);
 };
 
 const sendHello = () => {
