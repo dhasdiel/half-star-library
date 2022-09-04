@@ -10,6 +10,7 @@ import PastBooks from "./components/Book/PastBooks";
 import Management from "./components/Management";
 import NotFound from "./components/NotFound";
 import { command, sendHello } from "./socket/socketEmit";
+import Login from "./components/User/Login";
 
 const App = () => {
   const [counter, setCounter] = useState(0);
@@ -19,6 +20,7 @@ const App = () => {
       <div className="content">
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/userarea" element={<UserArea />} />
           <Route path="/borrow" element={<Borrow />} />
           <Route path="/return" element={<Return />} />

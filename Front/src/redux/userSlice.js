@@ -16,8 +16,12 @@ const userSlice = createSlice({
     setNumOfUsers: (state, action) => {
       state.numOfUsers = action.payload.length;
     },
+    setCurretUser: (state, action) => {
+      state.curretUser = JSON.parse(localStorage["user"]);
+    },
   },
 });
 
-export const { setUsers, setNumOfUsers } = userSlice.actions;
+export const selectAllUsers = (state) => state.users.users;
+export const { setUsers, setNumOfUsers, setCurretUser } = userSlice.actions;
 export default userSlice.reducer;
