@@ -102,3 +102,8 @@ body {
   width: 270px;
   padding-top: 20px;
 }
+
+/* Home */
+.home-container {
+  padding-top: 20px;
+}

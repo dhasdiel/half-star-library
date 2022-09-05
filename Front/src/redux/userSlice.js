@@ -1,8 +1,8 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   users: null,
-  curretUser: null,
+  currentUser: null,
   numOfUsers: 0,
 };
 
@@ -14,14 +14,16 @@ const userSlice = createSlice({
       state.users = action.payload;
     },
     setNumOfUsers: (state, action) => {
-      state.numOfUsers = action.payload.length;
+      state.numOfUsers = state.users.length;
     },
-    setCurretUser: (state, action) => {
-      state.curretUser = JSON.parse(localStorage["user"]);
+    setCurrentUser: (state, action) => {
+      state.currentUser = JSON.parse(localStorage["user"]);
+      console.log(state.currentUser);
     },
   },
 });
 
 export const selectAllUsers = (state) => state.users.users;
-export const { setUsers, setNumOfUsers, setCurretUser } = userSlice.actions;
+export const selectCurrentUser = (state) => state.users.currentUser;
+export const { setUsers, setNumOfUsers, setCurrentUser } = userSlice.actions;
 export default userSlice.reducer;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { Button, Message, Form, Header } from "semantic-ui-react";
-import { selectAllUsers, setCurretUser } from "../../redux/userSlice";
+import { selectAllUsers, setCurrentUser } from "../../redux/userSlice";
 
 function Login() {
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ function Login() {
     const user = isExistUser(username, users);
     if (user) {
       localStorage["user"] = JSON.stringify(user);
-      dispatch(setCurretUser());
+      dispatch(setCurrentUser());
       setError(false);
       setName("");
       navigate("/");
