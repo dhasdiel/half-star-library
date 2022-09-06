@@ -66,6 +66,7 @@ const UserArea = () => {
       genre: String(genre),
       isManager: currentUser.isManager,
       pastBooks: currentUser.pastBooks,
+      hasBooks: currentUser.hasBooks,
     };
     console.log("send changed user");
     changeUserDetails(changedUser);
@@ -103,7 +104,7 @@ const UserArea = () => {
         <Button type="submit">Update</Button>
       </Form>
       <div style={{ marginTop: "20px" }}>
-        <Header as="h1">Books you borrowed:</Header>
+        <Header as="h1">Books you returned:</Header>
         <Card.Group centered>
           {userPastBooks.map((book) => (
             <Card key={book.id}>
