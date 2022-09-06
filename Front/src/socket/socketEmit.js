@@ -9,4 +9,8 @@ const sendHello = () => {
   socket.emit("hello", "Hello World");
 };
 
-export { command, sendHello };
+const changeUserDetails = (changedUser) => {
+  socket.emit("change", changedUser);
+};
+
+export { command, sendHello, changeUserDetails };

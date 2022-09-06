@@ -6,7 +6,7 @@ import { selectAllUsers, setCurrentUser } from "../../redux/userSlice";
 
 function Login() {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const users = useSelector(selectAllUsers);
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
@@ -24,14 +24,17 @@ function Login() {
     e.preventDefault();
     const username = name;
     const user = isExistUser(username, users);
+    console.log(user);
     if (user) {
-      localStorage["user"] = JSON.stringify(user);
-      dispatch(setCurrentUser());
+      dispatch(setCurrentUser(user));
       setError(false);
       setName("");
-      navigate("/");
+      console.log("Works");
+      // navigate("/");
+      window.location.href = "/";
+    } else {
+      setError(true);
     }
-    setError(true);
   };
 
   return (

@@ -12,8 +12,9 @@ const Home = () => {
 
   useEffect(() => {
     if (currentUser) {
+      console.log(currentUser);
       setName(currentUser.fullname);
-      setLeftBooks(numOfBooks - currentUser.pastBooks.length);
+      setLeftBooks(numOfBooks - currentUser?.pastBooks.length);
       // setNewBooks(useSelector((state) => state.books.newBooksList));
     }
   }, [currentUser, numOfBooks]);

@@ -107,3 +107,8 @@ body {
 .home-container {
   padding-top: 20px;
 }
+
+/* User Area */
+.details-container {
+  pointer-events: none;
+}

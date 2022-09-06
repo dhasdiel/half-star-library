@@ -17,7 +17,13 @@ const userSlice = createSlice({
       state.numOfUsers = state.users.length;
     },
     setCurrentUser: (state, action) => {
-      state.currentUser = JSON.parse(localStorage["user"]);
+      console.log(action.payload);
+      if (localStorage["user"]) {
+        state.currentUser = JSON.parse(localStorage["user"]);
+      } else {
+        state.currentUser = action.payload;
+        localStorage["user"] = JSON.stringify(state.currentUser);
+      }
       console.log(state.currentUser);
     },
   },
