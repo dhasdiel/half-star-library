@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Button, Message, Form, Header } from "semantic-ui-react";
-import { selectAllUsers, setCurrentUser } from "../../redux/userSlice";
+import { Button, Form, Header } from "semantic-ui-react";
+import { setCurrentUser } from "../../redux/userSlice";
 
-function Login() {
+const Login = () => {
   const dispatch = useDispatch();
   // const navigate = useNavigate();
-  const users = useSelector(selectAllUsers);
+  const users = useSelector((state) => state.users.users);
   const [name, setName] = useState("");
   const [error, setError] = useState(false);
 
@@ -24,12 +24,10 @@ function Login() {
     e.preventDefault();
     const username = name;
     const user = isExistUser(username, users);
-    console.log(user);
     if (user) {
       dispatch(setCurrentUser(user));
       setError(false);
       setName("");
-      console.log("Works");
       // navigate("/");
       window.location.href = "/";
     } else {
@@ -62,6 +60,6 @@ function Login() {
       </div>
     </>
   );
-}
+};
 
 export default Login;

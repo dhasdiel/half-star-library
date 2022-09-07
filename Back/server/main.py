@@ -23,11 +23,17 @@ dataBase = {
         {"id": 6,"title": "Huckleberry Finn", "author": "Twain, Mark",  "genre": "fantasy", "quanity": 6 ,"borrowNow": 14},
         {"id": 7,"title": "Bleak House", "author": "Dickens, Charles",  "genre": "fantasy", "quanity": 42 ,"borrowNow":2},
         {"id": 8,"title": "Tom Sawyer", "author": "Twain, Mark",  "genre": "fantasy", "quanity": 13 ,"borrowNow": 12},
-        {"id": 9,"title": "A Room of One's Own", "author": "Woolf, Virginia", "genre": "fantasy", "quanity": 14 ,"borrowNow": 12},
+        {"id": 9,"title": "A Room of One's Own", "author": "Woolf, Virginia", "genre": "finance", "quanity": 14 ,"borrowNow": 12},
         {"id": 10,"title": "Harry Potter", "author": "Rowling, J.K.",  "genre": "fantasy", "quanity": 51 ,"borrowNow": 6},
         {"id": 11,"title": "One Hundred Years of Solitude", "author": "Marquez",  "genre": "fantasy", "quanity": 32 ,"borrowNow": 0},
         {"id": 12,"title": "Hamlet, Prince of Denmark", "author": "Shakespeare",  "genre": "fantasy", "quanity": 11 ,"borrowNow": 7},]
 }
+
+def find_in_dataBase(data, obj):
+    for index in range(len(dataBase[data])):
+        if dataBase[data][index]["id"] == obj["id"]:
+            return index
+
 
 @socketio.on('connect')
 def initData():
@@ -43,12 +49,23 @@ def handleHello(data):
     print(data)
 
 @socketio.on("change")
-def handleChange(changedUser):
+def handle_change(changedUser):
     for user in dataBase["users"]:
         if user["id"] == changedUser["id"]:
             dataBase["users"].remove(user)
             dataBase["users"].append(changedUser)
     print("Changed details of user")
+
+@socketio.on("borrow")
+def handle_borrow(borrowAction):
+    book_index = find_in_dataBase("books", borrowAction["book"])
+    dataBase["books"][book_index]["quanity"] -=1 
+    dataBase["books"][book_index]["borrowNow"] +=1 
+    user_index = find_in_dataBase("users", borrowAction["user"])
+    dataBase["users"][user_index]["hasBooks"].append(borrowAction["book"]["id"])
+    print("Borrow complete!")
+   
+
 
 if __name__ == '__main__':
     socketio.run(app, port=5000, host='0.0.0.0')

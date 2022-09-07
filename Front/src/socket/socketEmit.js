@@ -13,4 +13,8 @@ const changeUserDetails = (changedUser) => {
   socket.emit("change", changedUser);
 };
 
-export { command, sendHello, changeUserDetails };
+const borrowAction = (borrowAction) => {
+  socket.emit("borrow", borrowAction);
+};
+
+export { command, sendHello, changeUserDetails, borrowAction };
