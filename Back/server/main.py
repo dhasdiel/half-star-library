@@ -1,3 +1,4 @@
+from socket import socket
 from flask import Flask
 from flask_socketio import SocketIO, emit
 import time
@@ -64,7 +65,19 @@ def handle_borrow(borrowAction):
     user_index = find_in_dataBase("users", borrowAction["user"])
     dataBase["users"][user_index]["hasBooks"].append(borrowAction["book"]["id"])
     print("Borrow complete!")
-   
+    initData()   
+
+@socketio.on("return")
+def handle_return(return_action):
+    book_index = find_in_dataBase("books", return_action["book"])
+    dataBase["books"][book_index]["quanity"] +=1 
+    dataBase["books"][book_index]["borrowNow"] -=1 
+    user_index = find_in_dataBase("users", return_action["user"])
+    dataBase["users"][user_index]["hasBooks"].remove(return_action["book"]["id"])
+    if not return_action["book"]["id"] in dataBase["users"][user_index]["pastBooks"]:
+         dataBase["users"][user_index]["pastBooks"].append(return_action["book"]["id"])
+    print("Return complete!")
+    initData()
 
 
 if __name__ == '__main__':

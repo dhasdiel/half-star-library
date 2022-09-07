@@ -24,10 +24,18 @@ const userSlice = createSlice({
         localStorage["user"] = JSON.stringify(state.currentUser);
       }
     },
+    updateCurrentUser: (state, action) => {
+      let updateUser = state.users.find(
+        (user) => user.id === state.currentUser.id
+      );
+      state.currentUser = updateUser;
+      localStorage["user"] = JSON.stringify(updateUser);
+    },
   },
 });
 
 // export const selectAllUsers = (state) => state.users.users;
 // export const selectCurrentUser = (state) => state.users.currentUser;
-export const { setUsers, setNumOfUsers, setCurrentUser } = userSlice.actions;
+export const { setUsers, setNumOfUsers, setCurrentUser, updateCurrentUser } =
+  userSlice.actions;
 export default userSlice.reducer;

@@ -17,4 +17,8 @@ const borrowAction = (borrowAction) => {
   socket.emit("borrow", borrowAction);
 };
 
-export { command, sendHello, changeUserDetails, borrowAction };
+const returnAction = (returnAction) => {
+  socket.emit("return", returnAction);
+};
+
+export { command, sendHello, changeUserDetails, borrowAction, returnAction };

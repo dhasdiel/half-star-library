@@ -19,31 +19,23 @@ const panes = [
       </Tab.Pane>
     ),
   },
-  {
-    menuItem: "remove",
-    render: () => (
-      <Tab.Pane>
-        <AllBooks mode="remove" />
-      </Tab.Pane>
-    ),
-  },
-  {
-    menuItem: "return",
-    render: () => (
-      <Tab.Pane>
-        <AllBooks mode="return" />
-      </Tab.Pane>
-    ),
-  },
+  // {
+  //   menuItem: "remove",
+  //   render: () => (
+  //     <Tab.Pane>
+  //       <AllBooks mode="remove" />
+  //     </Tab.Pane>
+  //   ),
+  // },
 ];
 
-function Borrow() {
+const Borrow = () => {
   return (
     <>
       <Header as="h1">Books to borrow</Header>
       <Tab panes={panes} />
     </>
   );
-}
+};
 
 export default Borrow;

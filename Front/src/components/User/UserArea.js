@@ -1,16 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { changeUserDetails } from "../../socket/socketEmit";
 import { useSelector, useDispatch } from "react-redux";
-import {
-  Button,
-  Card,
-  Form,
-  Header,
-  Input,
-  Radio,
-  Select,
-} from "semantic-ui-react";
+import { Button, Form, Header, Input, Radio, Select } from "semantic-ui-react";
 import { setCurrentUser } from "../../redux/userSlice";
+import AllBooks from "../Book/AllBooks";
 
 const genreOptions = [
   { key: "a", text: "Action", value: "action" },
@@ -51,11 +44,6 @@ const UserArea = () => {
       getUserPastBooks();
     }
   }, [currentUser]);
-
-  // const handleToggle = () => {
-  //   console.log(document.getElementsByClassName("field"));
-  //   // document.getElementsByClassName("field").disabled = true;
-  // };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -105,17 +93,7 @@ const UserArea = () => {
       </Form>
       <div style={{ marginTop: "20px" }}>
         <Header as="h1">Books you returned:</Header>
-        <Card.Group centered>
-          {userPastBooks.map((book) => (
-            <Card key={book.id}>
-              <Card.Content>
-                <Card.Header content={book.title} />
-                <Card.Meta content={book.genre} />
-                <Card.Description content={book.author} />
-              </Card.Content>
-            </Card>
-          ))}
-        </Card.Group>
+        <AllBooks mode="past" />
       </div>
     </>
   );
