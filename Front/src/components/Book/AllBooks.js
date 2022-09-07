@@ -29,22 +29,20 @@ const AllBooks = (props) => {
     setBooks(newListBooks);
   };
 
-  // const getModeBooks = () => {
-  //   if (props.mode === "genre") {
-  //     const filterdBooks = allBooks.filter(
-  //       (book) => book.genre === currentUser.genre
-  //     );
-  //     return filterdBooks;
-  //   } else if (props.mode === "borrow") {
-  //     return allBooks;
-  //   } else if (props.mode === "return") {
-  //     return getUserBooks("hasBooks");
-  //   } else if (props.mode === "past") {
-  //     return getUserBooks("pastBooks");
-  //   } else if (props.mode === "remove") {
-  //     return allBooks;
-  //   }
-  // };
+  const getAllUserBooks = () => {
+    let allUserBooks = [];
+    for (let i = 0; i < currentUser?.hasBooks.length; i++) {
+      allUserBooks.push(
+        allBooks.find((book) => book.id === currentUser?.hasBooks[i])
+      );
+    }
+    for (let i = 0; i < currentUser?.pastBooks.length; i++) {
+      allUserBooks.push(
+        allBooks.find((book) => book.id === currentUser?.pastBooks[i])
+      );
+    }
+    setBooks(allUserBooks);
+  };
 
   useEffect(() => {
     if (currentUser) {
@@ -61,6 +59,8 @@ const AllBooks = (props) => {
         getUserBooks("pastBooks");
       } else if (props.mode === "remove") {
         setBooks(allBooks);
+      } else if (props.mode === "alluser") {
+        getAllUserBooks();
       }
     }
   }, [props.mode, currentUser]);
@@ -72,8 +72,6 @@ const AllBooks = (props) => {
   // useEffect(() => {
   //   console.log(`all books user`, currentUser);
   // }, [currentUser]);
-
-  // setBooks(getModeBooks());
 
   return (
     <Card.Group>
