@@ -53,7 +53,7 @@ const UserArea = () => {
       <Radio toggle onClick={handleToggle} /> */}
       <Header as="h1">Personal info</Header>
       <Form onSubmit={handleSubmit}>
-        <Form.Group widths="equal">
+        <Form.Group widths="5">
           <Form.Field
             control={Input}
             label="Full name"

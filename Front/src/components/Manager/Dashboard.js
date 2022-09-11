@@ -35,7 +35,7 @@ const Dashboard = () => {
         <Card fluid>
           <Statistic size="large">
             <Statistic.Value>{inStock}</Statistic.Value>
-            <Statistic.Label> Copies in stock</Statistic.Label>
+            <Statistic.Label>Copies in stock</Statistic.Label>
           </Statistic>
         </Card>
       </Card.Group>

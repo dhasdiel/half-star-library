@@ -9,9 +9,10 @@ import Borrow from "./components/Book/Borrow";
 import Return from "./components/Book/Return";
 import PastBooks from "./components/Book/PastBooks";
 import Management from "./components/Manager/Management";
-import NotFound from "./components/NotFound";
+import NotFound from "./components/UI/NotFound";
 import Login from "./components/User/Login";
 import { setCurrentUser } from "./redux/userSlice";
+import Result from "./components/Result";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,7 @@ const App = () => {
               <Route path="/return" element={<Return />} />
               <Route path="/pastbooks" element={<PastBooks />} />
               <Route path="/management" element={<Management />} />
+              <Route path="/result" element={<Result />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </div>

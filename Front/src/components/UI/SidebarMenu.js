@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Icon, Menu, Header, Button, Container } from "semantic-ui-react";
 import { useSelector, useDispatch } from "react-redux";
 import { setCurrentUser } from "../../redux/userSlice";
+import Search from "../Search";
 
 const SidebarMenu = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ const SidebarMenu = () => {
           <Icon name="star half full" circular />
           <Header.Content>Half-Star Library</Header.Content>
         </Header>
+        <Container textAlign="center" style={{ marginTop: "20px" }}>
+          <Search />
+        </Container>
         <Menu.Item as={Link} to="/userarea">
           <Icon name="user" />
           User area
