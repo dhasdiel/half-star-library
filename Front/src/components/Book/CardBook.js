@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Button, Card } from "semantic-ui-react";
-import { borrowAction, returnAction } from "../../socket/socketEmit";
+import { Button, Card, Icon } from "semantic-ui-react";
+import {
+  borrowAction,
+  returnAction,
+  removeBookAction,
+} from "../../socket/socketEmit";
 
 const CardBook = (props) => {
   const currentUser = useSelector((state) => state.users.currentUser);
@@ -20,7 +24,10 @@ const CardBook = (props) => {
     console.log(`return user:`, currentUser);
   };
 
-  const handleRemove = () => {};
+  const handleRemoveBook = () => {
+    removeBookAction(book);
+    console.log("remove book: ", book);
+  };
 
   useEffect(() => {
     if (props.action === "borrow" || props.action === "genre") {
@@ -28,7 +35,7 @@ const CardBook = (props) => {
     } else if (props.action === "return") {
       setAction({ color: "orange", click: handleReturn, text: "Return" });
     } else if (props.action === "remove") {
-      setAction({ color: "red", click: handleRemove, text: "Remove" });
+      setAction({ color: "red", click: handleRemoveBook, text: "Remove" });
     } else setAction(null);
   }, [props.action]);
 
@@ -39,6 +46,14 @@ const CardBook = (props) => {
         <Card.Meta>{book.genre}</Card.Meta>
         <Card.Description>{book.author}</Card.Description>
       </Card.Content>
+      {props.action === "remove" && (
+        <Card.Content extra>
+          <a>
+            <Icon name="book" />
+            Quanity {book.quanity}
+          </a>
+        </Card.Content>
+      )}
       {action ? (
         <Card.Content extra>
           <Button basic color={action.color} onClick={action.click}>

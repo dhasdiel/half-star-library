@@ -21,4 +21,30 @@ const returnAction = (returnAction) => {
   socket.emit("return", returnAction);
 };
 
-export { command, sendHello, changeUserDetails, borrowAction, returnAction };
+const addUserAction = (newUser) => {
+  socket.emit("adduser", newUser);
+};
+
+const addBookAction = (newBook) => {
+  socket.emit("addbook", newBook);
+};
+
+const removeBookAction = (removedBook) => {
+  socket.emit("removebook", removedBook);
+};
+
+const removeUserAction = (removedUser) => {
+  socket.emit("removeuser", removedUser);
+};
+
+export {
+  command,
+  sendHello,
+  changeUserDetails,
+  borrowAction,
+  returnAction,
+  addBookAction,
+  addUserAction,
+  removeBookAction,
+  removeUserAction,
+};

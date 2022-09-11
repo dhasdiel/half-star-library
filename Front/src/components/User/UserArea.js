@@ -17,31 +17,16 @@ const genreOptions = [
 const UserArea = () => {
   const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.users.currentUser);
-  const books = useSelector((state) => state.books.books);
 
   const [fullName, setFullName] = useState("Full name");
   const [age, setAge] = useState("Age");
   const [genre, setGenre] = useState("Genre");
-  const [userPastBooks, setUserPastBooks] = useState([]);
-
-  const getUserPastBooks = () => {
-    let pastBooks = [];
-    for (let i = 0; i < currentUser?.pastBooks.length; i++) {
-      for (let j = 0; j < books.length; j++) {
-        if (books[j].id === currentUser.pastBooks[i]) {
-          pastBooks.push(books[j]);
-        }
-      }
-    }
-    setUserPastBooks(pastBooks);
-  };
 
   useEffect(() => {
     if (currentUser) {
       setFullName(currentUser.fullname);
       setAge(String(currentUser.age));
       setGenre(currentUser.genre);
-      getUserPastBooks();
     }
   }, [currentUser]);
 
@@ -58,8 +43,8 @@ const UserArea = () => {
     };
     console.log("send changed user");
     changeUserDetails(changedUser);
-    localStorage["user"] = JSON.stringify(changedUser);
     dispatch(setCurrentUser(changedUser));
+    localStorage["user"] = JSON.stringify(changedUser);
   };
 
   return (

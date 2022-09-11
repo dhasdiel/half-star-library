@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Card } from "semantic-ui-react";
+import { Card, Button, Container } from "semantic-ui-react";
+import AddData from "../AddData";
+import AddBook from "./AddBook";
 import CardBook from "./CardBook";
 
 const AllBooks = (props) => {
@@ -29,21 +31,6 @@ const AllBooks = (props) => {
     setBooks(newListBooks);
   };
 
-  const getAllUserBooks = () => {
-    let allUserBooks = [];
-    for (let i = 0; i < currentUser?.hasBooks.length; i++) {
-      allUserBooks.push(
-        allBooks.find((book) => book.id === currentUser?.hasBooks[i])
-      );
-    }
-    for (let i = 0; i < currentUser?.pastBooks.length; i++) {
-      allUserBooks.push(
-        allBooks.find((book) => book.id === currentUser?.pastBooks[i])
-      );
-    }
-    setBooks(allUserBooks);
-  };
-
   useEffect(() => {
     if (currentUser) {
       if (props.mode === "genre") {
@@ -59,11 +46,11 @@ const AllBooks = (props) => {
         getUserBooks("pastBooks");
       } else if (props.mode === "remove") {
         setBooks(allBooks);
-      } else if (props.mode === "alluser") {
-        getAllUserBooks();
+      } else if (props.mode === "has") {
+        getUserBooks("hasBooks");
       }
     }
-  }, [props.mode, currentUser]);
+  }, [props.mode, currentUser, allBooks]);
 
   // useEffect(() => {
   //   console.log(`all books ${props.mode}`, books);
@@ -74,11 +61,14 @@ const AllBooks = (props) => {
   // }, [currentUser]);
 
   return (
-    <Card.Group>
-      {books?.map((book) => (
-        <CardBook key={book.id} book={book} action={props.mode} />
-      ))}
-    </Card.Group>
+    <>
+      {props.mode === "remove" && <AddBook />}
+      <Card.Group>
+        {books?.map((book) => (
+          <CardBook key={book.id} book={book} action={props.mode} />
+        ))}
+      </Card.Group>
+    </>
   );
 };
 

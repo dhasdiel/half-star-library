@@ -4,10 +4,18 @@ import AllBooks from "./AllBooks";
 
 const panes = [
   {
-    menuItem: "All",
+    menuItem: "Now",
     render: () => (
       <Tab.Pane>
-        <AllBooks mode="alluser" />
+        <AllBooks mode="has" />
+      </Tab.Pane>
+    ),
+  },
+  {
+    menuItem: "Past",
+    render: () => (
+      <Tab.Pane>
+        <AllBooks mode="past" />
       </Tab.Pane>
     ),
   },
