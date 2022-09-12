@@ -15,12 +15,14 @@ const Result = () => {
 
   const searchInUsers = () => {
     const temp = users?.filter((user) => user.fullname.includes(searchValue));
-    console.log(temp);
     setResultUser(temp);
   };
 
   const searchInBooks = () => {
-    const temp = books?.filter((book) => book.title.includes(searchValue));
+    const temp = books?.filter(
+      (book) =>
+        book.title.includes(searchValue) || book.author.includes(searchValue)
+    );
     setResultBook(temp);
   };
 
@@ -33,11 +35,16 @@ const Result = () => {
 
   return (
     <>
-      <Header as="h1">Result</Header>
+      <Header as="h1">Results</Header>
       <Container>
         {resultUser.length > 0 && (
           <>
             <Header as="h3">Users</Header>
+            {resultUser?.length === 0 && (
+              <Header className="not-found" as="h3">
+                No users found.
+              </Header>
+            )}
             <Card.Group>
               {resultUser?.map((user) => (
                 <CardUser key={user.id} user={user} />
@@ -46,6 +53,11 @@ const Result = () => {
           </>
         )}
         <Header as="h3">Books</Header>
+        {resultBook?.length === 0 && (
+          <Header className="not-found" as="h3">
+            No books found.
+          </Header>
+        )}
         <Card.Group>
           {resultBook?.map((book) => (
             <CardBook

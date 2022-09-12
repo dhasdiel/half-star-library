@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Card, Button, Container } from "semantic-ui-react";
+import { Card, Header } from "semantic-ui-react";
 import AddBook from "./AddBook";
 import CardBook from "./CardBook";
 
@@ -54,6 +54,11 @@ const AllBooks = (props) => {
   return (
     <>
       {props.mode === "remove" && <AddBook />}
+      {books?.length === 0 && (
+        <Header className="not-found" as="h3">
+          No books found.
+        </Header>
+      )}
       <Card.Group>
         {books?.map((book) => (
           <CardBook key={book.id} book={book} action={props.mode} />

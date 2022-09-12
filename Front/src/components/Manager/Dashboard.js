@@ -20,20 +20,20 @@ const Dashboard = () => {
   return (
     <>
       <Card.Group>
-        <Card fluid>
+        <Card className="my-card" fluid>
           <Statistic size="large">
             <Statistic.Value>{numOfBooks}</Statistic.Value>
             <Statistic.Label>Books</Statistic.Label>
           </Statistic>
         </Card>
-        <Card fluid>
+        <Card className="my-card" fluid>
           <Statistic size="large">
             <Statistic.Value>{numOfUsers}</Statistic.Value>
             <Statistic.Label>Users</Statistic.Label>
           </Statistic>
         </Card>
         <Card fluid>
-          <Statistic size="large">
+          <Statistic className="my-card" size="large">
             <Statistic.Value>{inStock}</Statistic.Value>
             <Statistic.Label>Copies in stock</Statistic.Label>
           </Statistic>

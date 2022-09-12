@@ -3,6 +3,7 @@ import { Button, Header, Icon, Modal } from "semantic-ui-react";
 
 const PopupModal = (props) => {
   const [open, setOpen] = useState(false);
+
   return (
     <Modal
       basic

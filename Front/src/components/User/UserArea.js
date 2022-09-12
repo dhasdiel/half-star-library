@@ -42,7 +42,6 @@ const UserArea = () => {
       pastBooks: currentUser.pastBooks,
       hasBooks: currentUser.hasBooks,
     };
-    console.log("send changed user");
     changeUserDetails(changedUser);
     dispatch(setCurrentUser(changedUser));
     localStorage["user"] = JSON.stringify(changedUser);

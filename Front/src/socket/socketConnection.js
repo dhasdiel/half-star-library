@@ -18,7 +18,6 @@ socket.on("connect", (data) => {
 
 socket.on("update_users", (users) => {
   if (!users) return;
-  console.log("Update users: ", users);
   store.dispatch(setUsers(users));
   store.dispatch(setNumOfUsers());
   if (localStorage["user"]) {
@@ -28,13 +27,8 @@ socket.on("update_users", (users) => {
 
 socket.on("update_books", (books) => {
   if (!books) return;
-  console.log("Update books: ", books);
   store.dispatch(setBooks(books));
   store.dispatch(setNumOfBooks());
-});
-
-socket.on("test_channel", (data) => {
-  alert(data);
 });
 
 export default socket;

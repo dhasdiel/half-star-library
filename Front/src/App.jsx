@@ -27,7 +27,7 @@ const App = () => {
       {localStorage["user"] ? (
         <>
           <SidebarMenu />
-          <div className="content-m">
+          <div className="content-main">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Login />} />

@@ -22,12 +22,10 @@ const CardBook = (props) => {
 
   const handleReturn = () => {
     returnAction({ user: currentUser, book: book });
-    console.log(`return user:`, currentUser);
   };
 
   const handleRemoveBook = () => {
     removeBookAction(book);
-    console.log("remove book: ", book);
   };
 
   useEffect(() => {

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, Card, Form, Input, Select } from "semantic-ui-react";
+import { Card } from "semantic-ui-react";
 import CardUser from "./CardUser";
-import AddData from "../AddData";
 import AddUser from "./AddUser";
 
 const AllUsers = () => {
@@ -10,6 +9,11 @@ const AllUsers = () => {
   return (
     <>
       <AddUser />
+      {allUsers?.length === 0 && (
+        <Header className="not-found" as="h3">
+          No users found.
+        </Header>
+      )}
       <Card.Group>
         {allUsers?.map((user) => (
           <CardUser key={user.id} user={user} />

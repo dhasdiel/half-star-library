@@ -1,62 +1,36 @@
 :root {
-  /* --brand-color: #8ec1d6;
-  --dark-color: #3d4b5f;
-  --mid-color: #cbd5e1;
-  --light-color: #f8fafc; */
   --brand-color: #3ab5ac;
   --dark-color: #334155;
   --mid-color: #e2e8f0;
   --light-color: #f8fafc;
 }
-.App {
-  font-family: sans-serif;
-  text-align: center;
-}
+
 html,
 body {
   padding: 0;
   margin: 0;
   height: 100%;
-  /* transition: background-color 0.5s; */
   background-color: var(--light-color);
   font-family: "Oswald", sans-serif !important;
 }
-.leaflet-container {
-  position: absolute;
 
-  height: 100%;
-  width: 100%;
-}
-#root {
-  width: 100%;
-  height: 100%;
-}
-#map-wrapper {
-  position: relative;
-  width: 75%;
-  height: 100%;
-}
-
-/* .leaflet-div-icon {
-  background: transparent;
-  border: none;
-} */
-
-.content-m {
+.content-main {
   /* margin-left: 230px; Same as the width of the sidenav */
   margin: 60px 40px 60px 340px;
   /* font-size: 28px; Increased text to enable scrolling */
   padding: 0px 10px;
   background-color: var(--brand-color);
   border-radius: 20px;
-  /* padding-bottom: 30px;
-  padding-top: 20px;
-  padding-left: 30px; */
   padding: 30px;
 }
 
 .ui.header {
   color: var(--light-color) !important;
+}
+
+.not-found.ui.header {
+  color: var(--dark-color) !important;
+  padding: 10px;
 }
 
 /* SidebarMenu: */
@@ -79,7 +53,7 @@ body {
 }
 
 .sidenav a {
-  padding: 30px 8px 6px 16px;
+  padding: 25px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
   color: var(--light-color);
@@ -115,6 +89,23 @@ body {
 /* Home */
 .home-container {
   padding-top: 20px;
+  color: var(--light-color) !important;
+}
+
+.home-container .value {
+  color: var(--light-color) !important;
+}
+
+.home-container .header {
+  color: var(--light-color) !important;
+}
+
+.home-container .description {
+  color: var(--light-color) !important;
+}
+
+.home-container .label {
+  color: var(--light-color) !important;
 }
 
 /* User Area */
@@ -137,7 +128,6 @@ body {
 /* Card */
 .my-card {
   background-color: var(--light-color) !important;
-  /* border: 0.5px var(--brand-color) solid !important; */
 }
 
 /* Search */
