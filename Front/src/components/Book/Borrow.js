@@ -19,14 +19,6 @@ const panes = [
       </Tab.Pane>
     ),
   },
-  // {
-  //   menuItem: "remove",
-  //   render: () => (
-  //     <Tab.Pane>
-  //       <AllBooks mode="remove" />
-  //     </Tab.Pane>
-  //   ),
-  // },
 ];
 
 const Borrow = () => {

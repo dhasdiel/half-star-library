@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { changeUserDetails } from "../../socket/socketEmit";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Form, Header, Input, Radio, Select } from "semantic-ui-react";
+import { Button, Form, Header, Input, Select } from "semantic-ui-react";
 import { setCurrentUser } from "../../redux/userSlice";
 import AllBooks from "../Book/AllBooks";
 
@@ -49,11 +49,9 @@ const UserArea = () => {
 
   return (
     <>
-      {/* <span>Edit: </span>
-      <Radio toggle onClick={handleToggle} /> */}
       <Header as="h1">Personal info</Header>
-      <Form onSubmit={handleSubmit}>
-        <Form.Group widths="5">
+      <Form onSubmit={handleSubmit} className="edit-form">
+        <Form.Group widths="4">
           <Form.Field
             control={Input}
             label="Full name"
@@ -76,8 +74,8 @@ const UserArea = () => {
         </Form.Group>
         <Button type="submit">Update</Button>
       </Form>
-      <div style={{ marginTop: "20px" }}>
-        <Header as="h1">Books you returned:</Header>
+      <Header as="h1">Books you returned:</Header>
+      <div className="edit-form" style={{ marginTop: "20px" }}>
         <AllBooks mode="past" />
       </div>
     </>

@@ -1,7 +1,11 @@
 :root {
-  --brand-color: #8ec1d6;
+  /* --brand-color: #8ec1d6;
   --dark-color: #3d4b5f;
   --mid-color: #cbd5e1;
+  --light-color: #f8fafc; */
+  --brand-color: #3ab5ac;
+  --dark-color: #334155;
+  --mid-color: #e2e8f0;
   --light-color: #f8fafc;
 }
 .App {
@@ -15,6 +19,7 @@ body {
   height: 100%;
   /* transition: background-color 0.5s; */
   background-color: var(--light-color);
+  font-family: "Oswald", sans-serif !important;
 }
 .leaflet-container {
   position: absolute;
@@ -39,15 +44,25 @@ body {
 
 .content-m {
   /* margin-left: 230px; Same as the width of the sidenav */
-  margin: 60px 40px 60px 300px;
+  margin: 60px 40px 60px 340px;
   /* font-size: 28px; Increased text to enable scrolling */
   padding: 0px 10px;
+  background-color: var(--brand-color);
+  border-radius: 20px;
+  /* padding-bottom: 30px;
+  padding-top: 20px;
+  padding-left: 30px; */
+  padding: 30px;
+}
+
+.ui.header {
+  color: var(--light-color) !important;
 }
 
 /* SidebarMenu: */
 .sidenav {
   height: 100%;
-  width: 260px;
+  width: 300px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -63,8 +78,7 @@ body {
   color: var(--light-color) !important;
 }
 
-.sidenav a,
-.Nav_link:link {
+.sidenav a {
   padding: 30px 8px 6px 16px;
   text-decoration: none;
   font-size: 25px;
@@ -73,24 +87,15 @@ body {
   cursor: pointer;
 }
 
-.sidenav a:hover,
-i:hover {
+.sidenav a:hover {
   color: var(--mid-color) !important;
 }
 
 .sidenav i {
   cursor: pointer;
-  color: var(--light-color) !important;
-  margin-left: 20px;
-  margin-right: 15px;
-}
-
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
+  color: var(--brand-color) !important;
   margin-left: 50px;
+  margin-right: 15px;
 }
 
 .span {
@@ -99,9 +104,12 @@ i:hover {
 }
 
 /* Login */
-.form-container {
-  width: 270px;
-  padding-top: 20px;
+.login-container {
+  background-color: var(--dark-color);
+}
+
+.login-btn {
+  background-color: var(--brand-color) !important;
 }
 
 /* Home */
@@ -110,6 +118,42 @@ i:hover {
 }
 
 /* User Area */
-.details-container {
-  pointer-events: none;
+.edit-form {
+  max-width: 85% !important;
+  padding: 15px;
+  border-radius: 5px;
+  background-color: var(--light-color);
+}
+
+/* Card */
+.my-card {
+  background-color: var(--light-color) !important;
+  /* border: 0.5px var(--brand-color) solid !important; */
+}
+
+/* Search */
+.search {
+  border-radius: 15px;
+}
+
+.search > i.inverted.circular.icon {
+  background-color: var(--brand-color) !important;
+}
+
+/* Add Form */
+.add-form {
+  max-width: 88.3% !important;
+  border-radius: 5px;
+  background-color: var(--light-color);
+  padding: 15px;
+  border: 0.5px var(--mid-color) solid;
+}
+
+.add-btn {
+  background-color: var(--brand-color) !important;
+  color: var(--light-color) !important;
+}
+
+.add-btn:hover {
+  background-color: teal !important;
 }

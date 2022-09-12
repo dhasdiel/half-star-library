@@ -37,7 +37,7 @@ const AddBook = () => {
     <>
       {show ? (
         <div style={{ marginBottom: "15px" }}>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="add-form">
             <Form.Group widths="5">
               <>
                 <Form.Field
@@ -63,7 +63,9 @@ const AddBook = () => {
                 />
               </>
             </Form.Group>
-            <Button type="submit">Add</Button>
+            <Button className="add-btn" type="submit">
+              Add
+            </Button>
           </Form>
         </div>
       ) : (

@@ -14,6 +14,7 @@ const Search = () => {
 
   return (
     <Input
+      className="search"
       icon={<Icon name="search" inverted circular link onClick={handleClick} />}
       placeholder={value}
       onChange={(e) => setValue(e.target.value)}

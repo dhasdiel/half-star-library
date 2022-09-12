@@ -40,7 +40,7 @@ const CardBook = (props) => {
   }, [props.action]);
 
   return (
-    <Card key={book.id}>
+    <Card key={book.id} className="my-card">
       <Card.Content>
         <Card.Header>{book.title}</Card.Header>
         <Card.Meta>{book.genre}</Card.Meta>
