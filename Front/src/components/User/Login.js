@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Image,
-  Message,
-  Segment,
-} from "semantic-ui-react";
+import { Button, Form, Grid, Header, Segment } from "semantic-ui-react";
 import { setCurrentUser } from "../../redux/userSlice";
 
 const Login = () => {

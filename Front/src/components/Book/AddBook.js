@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, Form, Input, Select } from "semantic-ui-react";
 import { addBookAction } from "../../socket/socketEmit";
+import PopupModal from "../UI/PopupModal";
 
 const genreOptions = [
   { key: "a", text: "Action", value: "action" },
@@ -30,8 +31,8 @@ const AddBook = () => {
       quanity: Number(quanity),
       borrowNow: 0,
     };
-    setShow(false);
     addBookAction(newBook);
+    // setShow(false);
   };
   return (
     <>
@@ -63,9 +64,15 @@ const AddBook = () => {
                 />
               </>
             </Form.Group>
-            <Button className="add-btn" type="submit">
-              Add
-            </Button>
+            <PopupModal
+              icon="book"
+              message="Book added to the library"
+              btn={
+                <Button className="add-btn" type="submit">
+                  Add
+                </Button>
+              }
+            />
           </Form>
         </div>
       ) : (

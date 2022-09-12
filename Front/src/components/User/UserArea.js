@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Button, Form, Header, Input, Select } from "semantic-ui-react";
 import { setCurrentUser } from "../../redux/userSlice";
 import AllBooks from "../Book/AllBooks";
+import PopupModal from "../UI/PopupModal";
 
 const genreOptions = [
   { key: "a", text: "Action", value: "action" },
@@ -72,7 +73,15 @@ const UserArea = () => {
             onChange={(e, data) => setGenre(data.value)}
           />
         </Form.Group>
-        <Button type="submit">Update</Button>
+        <PopupModal
+          icon="exchange"
+          message="You update your deatails"
+          btn={
+            <Button className="edit-btn" type="submit">
+              Update
+            </Button>
+          }
+        />
       </Form>
       <Header as="h1">Books you returned:</Header>
       <div className="edit-form" style={{ marginTop: "20px" }}>

@@ -6,6 +6,7 @@ import {
   returnAction,
   removeBookAction,
 } from "../../socket/socketEmit";
+import PopupModal from "../UI/PopupModal";
 
 const CardBook = (props) => {
   const currentUser = useSelector((state) => state.users.currentUser);
@@ -31,11 +32,29 @@ const CardBook = (props) => {
 
   useEffect(() => {
     if (props.action === "borrow" || props.action === "genre") {
-      setAction({ color: "green", click: handleBorrow, text: "Borrow" });
+      setAction({
+        color: "green",
+        click: handleBorrow,
+        text: "Borrow",
+        icon: "add",
+        message: "Book added to you",
+      });
     } else if (props.action === "return") {
-      setAction({ color: "orange", click: handleReturn, text: "Return" });
+      setAction({
+        color: "orange",
+        click: handleReturn,
+        text: "Return",
+        icon: "redo",
+        message: "You have returned book",
+      });
     } else if (props.action === "remove") {
-      setAction({ color: "red", click: handleRemoveBook, text: "Remove" });
+      setAction({
+        color: "red",
+        click: handleRemoveBook,
+        text: "Remove",
+        icon: "remove",
+        message: "You have removed book",
+      });
     } else setAction(null);
   }, [props.action]);
 
@@ -56,9 +75,15 @@ const CardBook = (props) => {
       )}
       {action ? (
         <Card.Content extra>
-          <Button basic color={action.color} onClick={action.click}>
-            {action.text}
-          </Button>
+          <PopupModal
+            icon={action.icon}
+            message={action.message}
+            btn={
+              <Button basic color={action.color} onClick={action.click}>
+                {action.text}
+              </Button>
+            }
+          />
         </Card.Content>
       ) : null}
     </Card>

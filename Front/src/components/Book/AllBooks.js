@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Card, Button, Container } from "semantic-ui-react";
-import AddData from "../AddData";
 import AddBook from "./AddBook";
 import CardBook from "./CardBook";
 
@@ -51,14 +50,6 @@ const AllBooks = (props) => {
       }
     }
   }, [props.mode, currentUser, allBooks]);
-
-  // useEffect(() => {
-  //   console.log(`all books ${props.mode}`, books);
-  // }, [books]);
-
-  // useEffect(() => {
-  //   console.log(`all books user`, currentUser);
-  // }, [currentUser]);
 
   return (
     <>

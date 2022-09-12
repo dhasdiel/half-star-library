@@ -125,6 +125,15 @@ body {
   background-color: var(--light-color);
 }
 
+.edit-btn {
+  background-color: var(--brand-color) !important;
+  color: var(--light-color) !important;
+}
+
+.edit-btn:hover {
+  background-color: teal !important;
+}
+
 /* Card */
 .my-card {
   background-color: var(--light-color) !important;

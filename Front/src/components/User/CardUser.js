@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Card, Icon } from "semantic-ui-react";
 import { removeUserAction } from "../../socket/socketEmit";
+import PopupModal from "../UI/PopupModal";
 
 const CardUser = (props) => {
   const user = props.user;
@@ -26,9 +27,15 @@ const CardUser = (props) => {
         </a>
       </Card.Content>
       <Card.Content extra>
-        <Button basic color="red" onClick={handleRemoveUser}>
-          remove
-        </Button>
+        <PopupModal
+          icon="remove user"
+          message="User removed from the library"
+          btn={
+            <Button basic color="red" onClick={handleRemoveUser}>
+              remove
+            </Button>
+          }
+        />
       </Card.Content>
     </Card>
   );

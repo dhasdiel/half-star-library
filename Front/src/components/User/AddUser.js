@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Button, Form, Input, Select } from "semantic-ui-react";
 import { addUserAction } from "../../socket/socketEmit";
+import PopupModal from "../UI/PopupModal";
 
 const genreOptions = [
   { key: "a", text: "Action", value: "action" },
@@ -36,14 +37,15 @@ const AddUser = () => {
       pastBooks: [],
       hasBooks: [],
     };
-    setShow(false);
+    // setShow(false);
     addUserAction(newUser);
   };
+
   return (
     <>
       {show ? (
         <div style={{ marginBottom: "15px" }}>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleSubmit} className="add-form">
             <Form.Group widths="5">
               <Form.Field
                 control={Input}
@@ -68,7 +70,15 @@ const AddUser = () => {
                 onChange={(e, data) => setIsManager(data.value)}
               />
             </Form.Group>
-            <Button type="submit">Add</Button>
+            <PopupModal
+              icon="add user"
+              message="User added to the library"
+              btn={
+                <Button className="add-btn" type="submit">
+                  Add
+                </Button>
+              }
+            />
           </Form>
         </div>
       ) : (
