@@ -9,6 +9,9 @@ const AllBooks = (props) => {
   var allBooks = useSelector((state) => state.books.books);
   const [books, setBooks] = useState([]);
 
+  // Get User Books:
+  // get a string and according to the string retun
+  // a array of books or "hasBooks" or "pastBooks".
   const getUserBooks = (key) => {
     let lenBooks = 0;
     let temp = null;

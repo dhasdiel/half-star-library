@@ -3,7 +3,6 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   books: null,
   numOfBooks: 0,
-  // newBooksList: [],
 };
 
 const bookSlice = createSlice({
@@ -16,11 +15,6 @@ const bookSlice = createSlice({
     setNumOfBooks: (state, action) => {
       state.numOfBooks = state.books.length;
     },
-    // setListOfNewBooks: (state, action) => {
-    //   for (let i = 0; i < action.payload; i++) {
-    //     state.newBooksList.push(state.books[state.numOfBooks - i]);
-    //   }
-    // },
   },
 });
 

@@ -28,6 +28,7 @@ const CardBook = (props) => {
     removeBookAction(book);
   };
 
+  // create a object of action and according to the object create the button.
   useEffect(() => {
     if (props.action === "borrow" || props.action === "genre") {
       setAction({

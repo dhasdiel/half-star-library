@@ -8,7 +8,6 @@ const CardUser = (props) => {
 
   const handleRemoveUser = () => {
     removeUserAction(user);
-    console.log("remove: ", user);
   };
 
   return (
